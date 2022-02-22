@@ -1,7 +1,7 @@
-from trail import trail
+from trail import Trail
 
 
-class location:
+class Location:
     def __init__(self):
         self.location_wandering = {}
     

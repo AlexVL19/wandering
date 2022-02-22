@@ -1,8 +1,8 @@
-import imp
+
 from turtle import distance, title
 from wandering import commonWandering, wandering
-from trail import trail
-from location import location
+from trail import Trail
+from location import Location
 
 from bokeh.plotting import figure, output_file, show
 
@@ -12,19 +12,18 @@ def walking(location, wandering, steps):
     for _ in range(steps):
         location.move_wandering(wandering)
 
-        return begin.distance(location.get_location(wandering))
+    return begin.distance(location.get_location(wandering))
 
 def simulate_walk(steps, atts, type_wandering):
     wandering = type_wandering(name='Alirio')
-    origin = location(0,0)
+    origin = Trail(0,0)
     distances = []
 
     for _ in range(atts):
-        trail = trail()
-        trail.add_wandering(wandering, origin)
-        sim_walk = walking(trail, wandering, steps)
+        location = Location()
+        location.add_wandering(wandering, origin)
+        sim_walk = walking(location, wandering, steps)
         distances.append(round(sim_walk,1))
-    
     return distances
 
 def graph(x, y):
