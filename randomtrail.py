@@ -1,5 +1,5 @@
 import imp
-from turtle import title
+from turtle import distance, title
 from wandering import commonWandering, wandering
 from trail import trail
 from location import location
@@ -31,3 +31,25 @@ def graph(x, y):
     grph = figure(title='Camino del errante', x_axis_label='Pasos', y_axis_label='Distancia')
     grph.line(x, y, legend='Distancia')
     show(grph)
+
+def main(walk_dist, atts, type_wandering):
+    avgwalk_dist = []
+
+    for steps in walk_dist:
+        distances = simulate_walk(steps, atts, type_wandering)
+        avgdist = round(sum(distances) / len(distances), 4)
+        maxdist = max(distances)
+        mindist = min(distances)
+        avgwalk_dist.append(avgdist)
+        print(f'{type_wandering.__name__} Caminata aleatoria de {steps} pasos')
+        print(f'Media = {avgdist}')
+        print(f'Max = {maxdist}')
+        print(f'Min = {mindist}')
+    
+    graph(walk_dist, avgwalk_dist)
+
+if __name__ == '__main__':
+
+    walk_dist = [10, 100, 1000, 10000]
+    atts = 100
+    main(walk_dist, atts, commonWandering)
