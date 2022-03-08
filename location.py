@@ -1,9 +1,12 @@
-class location:
+from trail import Trail
+
+
+class Location:
     def __init__(self):
         self.location_wandering = {}
     
-    def add_wandering(self, wandering, location):
-        self.location_wandering[wandering] = location
+    def add_wandering(self, wandering, trail):
+        self.location_wandering[wandering] = trail
 
     def move_wandering(self, wandering):
         dx, dy = wandering.walk()
