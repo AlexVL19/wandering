@@ -27,6 +27,7 @@ def simulate_walk(steps, atts, type_wandering):
     return distances
 
 def graph(x, y):
+    print(x, y)
     grph = figure(title='Camino del errante', x_axis_label='Pasos', y_axis_label='Distancia')
     grph.line(x, y, legend='Distancia')
     show(grph)
