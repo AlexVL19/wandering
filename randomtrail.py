@@ -40,7 +40,6 @@ def main(walk_dist, atts, type_wandering):
         maxdist = max(distances)
         mindist = min(distances)
         avgwalk_dist.append(avgdist)
-        print ('Hola mundo')
         print(f'{type_wandering.__name__} Caminata aleatoria de {steps} pasos')
         print(f'Media = {avgdist}')
         print(f'Max = {maxdist}')
